@@ -407,6 +407,7 @@ void irecv_usage(void) {
 	printf("\t-k [payload]\t\tsend usb exploit and payload.\n");
 	printf("\t-s [logfile]\t\tstarts a shell, and log output.\n");
 	printf("\t-l <file> \t\tsends a set of commands from a file (one per line).\n");
+	printf("\t-x <file> \t\tUploads a file, then auto-resets the usb connection.\n");
 	printf("\t-r\t\t\treset usb.\n\n");
 }
 
@@ -462,7 +463,12 @@ int main(int argc, char *argv[]) {
 	} else if (!strcmp(argv[1], "-l")) {
 	    irecv_list(handle, argv[2]);
 	}
-	
+	  else if (!strcmp(argv[1], "-x")) {
+	    if(argc == 3) {
+	    irecv_upload(handle, argv[2]);
+	    irecv_reset(handle);
+		}
+	}
 	irecv_close(handle);
 	return 0;
 }
