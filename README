@@ -14,4 +14,5 @@ It currently connects to 0x1281 (iPhone, iPhone 3G, iPod touch, iPod touch 2G: R
 	./iRecovery -f <file>			uploads a file.
 	./iRecovery -c "command"	send a single command.
 	./iRecovery -l <file>		sends a set of commands from a file (one per line).
+	./iRecovery -x <file>		Uploads a file to the device in DFU mode. Then resets USB stack.
 	
