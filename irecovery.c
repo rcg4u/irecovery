@@ -237,6 +237,23 @@ int irecv_command(struct usb_dev_handle *handle, int argc, char* argv[]) {
 
 	return 0;
 }
+int irecv_sendrawusb0xA1(struct usb_dev_handle *handle, char *command) {
+	int rawcmd = atoi(command);
+    printf("Sending RAW USB CMD to 0xA1, x, 0, 0, 0, 0, 1000...\n", usb_control_msg(handle, 0xA1, rawcmd, 0, 0, 0, 0, 1000));
+    printf("Done sending RAW USB CMD!\n");
+}
+
+int irecv_sendrawusb0x40(struct usb_dev_handle *handle, char *command) {
+	int rawcmd = atoi(command);
+    printf("Sending RAW USB CMD to 0x40, x, 0, 0, 0, 0, 1000...\n", usb_control_msg(handle, 0x40, rawcmd, 0, 0, 0, 0, 1000));
+    printf("Done sending RAW USB CMD!\n");
+}
+
+int irecv_sendrawusb0x21(struct usb_dev_handle *handle, char *command) {
+	int rawcmd = atoi(command);
+    printf("Sending RAW USB CMD to 0x21, x, 0, 0, 0, 0, 1000...\n", usb_control_msg(handle, 0x21, rawcmd, 0, 0, 0, 0, 1000));
+    printf("Done sending RAW USB CMD!\n");
+}
 
 int irecv_exploit(struct usb_dev_handle* handle, char* payload) {
     if(handle == NULL) {
@@ -405,6 +422,11 @@ void irecv_usage(void) {
 	printf("\t-c <command>\t\tsend a single command.\n");
 	printf("\t-k [payload]\t\tsend usb exploit and payload.\n");
 	printf("\t-s [logfile]\t\tstarts a shell, and log output.\n");
+        printf("\t-l <file> \t\tsend a set of commands from a file (1 per line).");
+	printf("\t-x21\t\t\tSend raw CMD to 0x21.\n");
+	printf("\t-x40\t\t\tSend raw CMD to 0x40.\n");
+	printf("\t-xA1\t\t\tSend raw CMD to 0xA1.\n");
+        printf("\t-r\t\t\treset usb.\n\n");
 	printf("\t-l <file> \t\tsends a set of commands from a file (one per line).\n");
 	printf("\t-x <file> \t\tUploads a file, then auto-resets the usb connection.\n");
 	printf("\t-r\t\t\treset usb.\n\n");
