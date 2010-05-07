@@ -12,13 +12,13 @@ all:
 	 	@echo 'WINDOWS USERS: make win'
 		@echo 'MAC OS X USERS compiling for windows using mingw: make macwin'
 macosx:	
-		@echo 'Buildling irecovery (Mac Os X)'			
+		@echo 'Building irecovery (Mac OS X)'			
 		@$(CC) irecovery.c -o irecovery $(CFLAGS_OSX)
 linux:
-		@echo 'Buildling irecovery (Linux)'
+		@echo 'Building irecovery (Linux)'
 		@$(CC) irecovery.c -o irecovery $(CFLAGS_LNX)
 win:
-		@echo 'Buildling irecovery (Windows)'
+		@echo 'Building irecovery (Windows)'
 		@$(CC) irecovery.c -o irecovery -I "C:\MinGW\include" -L "C:\MinGW\lib" $(CFLAGS_WIN)
 macwin:
 		@echo 'Building Windows binary on Mac OS X'
