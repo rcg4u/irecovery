@@ -52,8 +52,7 @@ struct usb_dev_handle* irecv_init(unsigned int devid) {
 
 	for (bus = usb_get_busses(); bus; bus = bus->next) {
 		for (dev = bus->devices; dev; dev = dev->next) {
-			if (dev->descriptor.idVendor == VENDOR_ID
-					&& dev->descriptor.idProduct == devid) {
+	if (dev->descriptor.idVendor == VENDOR_ID && dev->descriptor.idProduct == devid) {
 				handle = usb_open(dev);
 				return handle;
 			}
@@ -66,8 +65,8 @@ struct usb_dev_handle* irecv_init(unsigned int devid) {
 void irecv_close(struct usb_dev_handle* handle) {
 	printf("Closing USB connection...\n");
 	if (handle != NULL) {
-printf("Closing USB connection....\n");
-		usb_close(handle);
+	printf("Closing USB connection....\n");
+	usb_close(handle);
 	}
 }
 
@@ -287,7 +286,7 @@ int irecv_exploit(struct usb_dev_handle* handle, char* payload) {
         }
     }
     
-    if(!usb_control_msg(handle, 0x21, 2, 0, 0, 0, 0, 1000)) {
+	if(!usb_control_msg(handle, 0x21, 2, 0, 0, 0, 0, 1000)) {
 		printf("irecv_exploit: Error sending exploit!\n");
 		return -1;
 	}
