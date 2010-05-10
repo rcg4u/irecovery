@@ -31,7 +31,7 @@
 #define DFU_MODE        0x1222
 #define BUF_SIZE        0x10000
 
-/*void irecv_hexdump(unsigned char* buf, unsigned int len) {
+void irecv_hexdump(unsigned char* buf, unsigned int len) {
 	unsigned int i = 0;
 	for(i = 0; i < len; i++) {
 		if(i % 16 == 0 && i != 0)
@@ -39,7 +39,7 @@
 		printf("%02x ", buf[i]);
 	}
 	printf("\n");
-} */
+}
 
 struct usb_dev_handle* irecv_init(unsigned int devid) {
 	struct usb_dev_handle *handle = NULL;
@@ -488,7 +488,6 @@ void irecv_usage(void) {
         printf("\t-r\t\t\treset usb.\n");
 	printf("\t-l <file> \t\tsends a set of commands from a file (one per line).\n");
 	printf("\t-x <file> \t\tUploads a file, then auto-resets the usb connection.\n");
-	printf("\t-r\t\t\treset usb.\n\n");
 }
 
 int main(int argc, char *argv[]) {
