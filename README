@@ -9,12 +9,22 @@ It currently connects to 0x1281 (iPhone, iPhone 3G, iPod touch, iPod touch 2G: R
 
 == Usage ==
 
-	./iRecovery -s 			starts a shell.
-	./iRecovery -r 			usb reset.
-	./iRecovery -f <file>		uploads a file.
-	./iRecovery -c "command"	send a single command.
-	./iRecovery -l <file>		sends a set of commands from a file (one per line).
-	./iRecovery -x21 <cmd>     send a raw command to 0x21
-	./iRecovery -x40 <cmd>     send a raw command to 0x40
-	./iRecovery -xA1 <cmd>     send a raw command to 0xA1
+	-f <file>		upload file.
+	-c <command>		send a single command.
+	-k [payload]		send usb exploit and payload.
+	-s [logfile]		starts a shell, and log output.
+	-x21			Send raw CMD to 0x21.
+	-x40			Send raw CMD to 0x40.
+	-xA1			Send raw CMD to 0xA1.
+	-r			reset usb.
+	-l <file> 		sends a set of commands from a file (one per line).
+	-x <file> 		Uploads a file, then auto-resets the usb connection.
+
+
+Using GreySyntax or iH8Sn0w's binary and compiling you must install libusb 1.0 in order to use either of these
+
+Get the binaries or the source at http://www.libusb.org/wiki/Libusb1.0
+
+At this time my Makefile only works to compile irecovery for both 1.0 and earlier libusb for MacOSX.
+
 
