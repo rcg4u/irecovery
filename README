@@ -21,7 +21,32 @@ It currently connects to 0x1281 (iPhone, iPhone 3G, iPod touch, iPod touch 2G: R
 	-x <file> 		Uploads a file, then auto-resets the usb connection.
 
 
-Using GreySyntax or iH8Sn0w's binary and compiling you must install libusb 1.0 in order to use either of these
+Using GreySyntax or iH8Sn0w's binary and compiling you must install libusb 1.0 in order to use either of these, they added alot of things
+
+Rewrite by GreySyntax.
+
+./irecovery [args]
+	-a		enables auto-boot and reboots the device (exit recovery loop).
+	-arm7			Send the 2.1.1 iPod 2G Arm7_Go Exploit.
+	-b <file>	runs batch commands from a file(one per line).
+	-c "command"	send a single command.
+	-e <file>	upload a file then run usb exploit.
+	-r		usb reset.
+	-s		starts a shell.
+	-u <file>	uploads a file.
+	-x <file>	uploads a file then resets the usb connection.
+	-x21 <command>	send a raw command to 0x21.
+	-x40 <command>	send a raw command to 0x41.
+	-xA1 <command>	send a raw command to 0xA1.
+
+== Console / Batch Commands ==
+
+	/arm7			Send the 2.1.1 iPod 2G Arm7_Go Exploit.
+	/auto-boot	enables auto-boot and reboots the device (exit recovery loop).
+	/batch   <file>	execute commands from a batch file.
+	/exit		exit the recovery console.
+	/exploit <file>	upload a file then execute the usb exploit.
+	/upload  <file>	upload a file to the device.
 
 Get the binaries or the source at http://www.libusb.org/wiki/Libusb1.0
 
